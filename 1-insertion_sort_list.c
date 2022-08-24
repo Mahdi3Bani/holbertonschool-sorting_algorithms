@@ -1,31 +1,48 @@
 #include "sort.h"
-/**
- * swapp - swap
- * @prev: head of the node
- * 
- */
-
-
-
 
 /**
- * @insertion_sort - sorts a doubly linked list of integers
+ * insertion_sort_list - sorts a doubly linked list of integers
  * in ascending order using the Insertion sort algorithm
- * list: double linked llist
+ * @list: double linked llist
  */
 
 void insertion_sort_list(listint_t **list)
 {
-   
-listint_t *node;
+	listint_t *curr, *prevprev, *prevv, *curr1, *currnext;
 
+	if (!*list)
+		return;
 
-node = malloc(sizeof(listint_t));
-if (!list)
-return;
+	curr = *list;
 
-while (list)
-{
-    if ()
-}
+	while (curr)
+	{
+		if (curr->prev && curr->prev->n > curr->n)
+		{
+			prevprev = curr->prev->prev;
+			prevv = curr->prev;
+			curr1 = curr;
+			currnext = curr->next;
+			prevv->next = currnext;
+
+			if (currnext)
+				currnext->prev = prevv;
+
+			curr1->prev = prevprev;
+			curr1->next = prevv;
+
+			if (prevprev)
+				prevprev->next = curr1;
+
+			else
+				*list = curr1;
+
+			prevv->prev = curr1;
+			curr = *list;
+			print_list(*list);
+			continue;
+		}
+		else
+			curr = curr->next;
+	}
 }
