@@ -36,6 +36,8 @@ void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void quick_sort_hoare(int *array, size_t size);
-
-
+void quick_sort(int *array, size_t size);
+void quicker_sort(int *array, size_t size, int l, int h);
+int partition(int *array, size_t size, int l, int h);
+void swap(int *a, int *b);
 #endif
